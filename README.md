@@ -1,2 +1,3 @@
 # MyModularizationDemo
 模块化appdemo
+每个module可以单独运行 也可以在app里面公用 通过gradle.properties中的isBuildModule 来进行配置
