@@ -1,6 +1,7 @@
 package com.example.basemodule.network;
 
-import android.util.Log;
+
+import com.example.basemodule.utils.log.Log;
 
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -61,11 +62,11 @@ public class HttpLoggingInterceptor implements Interceptor {
         Connection connection = chain.connection();
         Protocol protocol = connection != null ? connection.protocol() : Protocol.HTTP_1_1;
         String requestStartMessage = "-->" + newRequest.method() + "''" + newRequest.url() + "''" + protocol;
-        Log.d("AAA", requestStartMessage);
+        Log.d("HTTP QUEST", requestStartMessage);
         if (hasRequestBody) {
             Buffer buffer = new Buffer();
             requestBody.writeTo(buffer);
-            Log.d("AAA", buffer.readUtf8());
+            Log.json("HTTP QUEST", buffer.readUtf8());
         }
 
         Response response;
@@ -73,19 +74,24 @@ public class HttpLoggingInterceptor implements Interceptor {
             response = chain.proceed(newRequest);
         } catch (Exception e) {
             e.printStackTrace();
+            Log.e("HTTP FAILED", e.getMessage());
             ResponseError responseError = new ResponseError();
             if (e instanceof SocketTimeoutException) {
+                // 超时
+                Log.e("HTTP FAILED", "SocketTimeoutException");
                 responseError.setError(500);
                 responseError.setMessage("网络请求超时");
                 throw new ApiException(responseError.getError(), responseError.getMessage());
             } else if (e instanceof SocketException) {
                 if (e.getMessage() != null && !e.getMessage().contains("Socket closed")) {
+                    Log.e("HTTP FAILED", "Socket closed");
                     responseError.setError(500);
                     responseError.setMessage("请检查您的网络设置");
                     throw new ApiException(responseError.getError(), responseError.getMessage());
                 }
             } else if (e instanceof IOException) {
                 if (!e.getMessage().contains("Canceled")) {
+                    Log.e("HTTP FAILED", "Canceled");
                     responseError.setError(666);
                     responseError.setMessage("请检查您的网络设置");
                     throw new ApiException(responseError.getError(), responseError.getMessage());
@@ -97,6 +103,7 @@ public class HttpLoggingInterceptor implements Interceptor {
         if (response.code() < 200 || response.code() > 299) {
             ResponseError error = new ResponseError();
             error.setError(response.code());
+            Log.e("HTTP FAILED",  "response code is "+response.code());
             if (response.code() == 403) {
                 throw new ProtocolException("失效异常");
             } else {
