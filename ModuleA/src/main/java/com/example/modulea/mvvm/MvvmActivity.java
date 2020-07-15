@@ -29,7 +29,7 @@ public class MvvmActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MainActivityViewModel viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        MvvmViewModel viewModel = new ViewModelProvider(this).get(MvvmViewModel.class);
         getLifecycle().addObserver(new MvvmActivityLife(viewModel, MvvmActivity.this));
     }
 }

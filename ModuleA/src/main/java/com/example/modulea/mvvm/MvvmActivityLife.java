@@ -20,7 +20,7 @@ import java.util.Locale;
  */
 public class MvvmActivityLife implements LifecycleObserver {
 
-    private MainActivityViewModel mainActivityViewModel;
+    private MvvmViewModel mainActivityViewModel;
 
     private boolean isAlive = true;
 
@@ -63,7 +63,7 @@ public class MvvmActivityLife implements LifecycleObserver {
         }
     };
 
-    public MvvmActivityLife(MainActivityViewModel mainActivityViewModel, MvvmActivity activity) {
+    public MvvmActivityLife(MvvmViewModel mainActivityViewModel, MvvmActivity activity) {
         this.mainActivityViewModel = mainActivityViewModel;
         this.mActivity = activity;
     }
