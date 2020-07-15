@@ -11,6 +11,8 @@
         <activity
             android:name=".mvp.ui.TestActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".mvvm.MvvmActivity" />
+        <activity android:name=".mvvm.openthreadtest.OpenThreadActivity" />
     </application>
 
 </manifest>

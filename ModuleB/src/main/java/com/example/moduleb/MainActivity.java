@@ -32,7 +32,8 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
 //                EventBus.getDefault().post("我是BBB传过来的数据");
 //                finish();
-                Routers.open(MainActivity.this, "jump_module://moduleA_test_activity");
+//                Routers.open(MainActivity.this, "jump_module://moduleA_test_activity");
+                Routers.open(MainActivity.this, "jump_module://moduleA_mvvm_activity");
             }
         });
     }

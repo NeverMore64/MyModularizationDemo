@@ -7,8 +7,8 @@ import androidx.annotation.Nullable;
 
 import com.example.basemodule.basemvp.BaseActivity;
 import com.example.basemodule.utils.BaseUtils;
+import com.example.modulea.mvvm.openthreadtest.OpenThreadActivity;
 import com.github.mzule.activityrouter.annotation.Router;
-import com.github.mzule.activityrouter.router.Routers;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -29,9 +29,13 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.tvModuleATv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventBus.getDefault().postSticky("我是从moduleA的MainActivity传递过来的数据");
-                Routers.open(MainActivity.this, "jump_module://moduleB_main_activity");
+
+//                EventBus.getDefault().postSticky("我是从moduleA的MainActivity传递过来的数据");
+//                Routers.open(MainActivity.this, "jump_module://moduleB_main_activity");
+
 //                TestActivity.start(MainActivity.this);
+
+                OpenThreadActivity.start(MainActivity.this);
             }
         });
     }

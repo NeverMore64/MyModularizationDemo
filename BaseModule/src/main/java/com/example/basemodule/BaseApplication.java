@@ -69,7 +69,7 @@ public class BaseApplication extends Application {
     private void initApplication() {
         netComponent = DaggerNetComponent.builder()
                 .appModule(new AppModule(this))
-                .netModule(new NetModule("http://192.168.2.3:8088"))
+                .netModule(new NetModule("http://192.168.4.40:8088"))
                 .build();
 
         apiComponent = DaggerApiComponent.builder()

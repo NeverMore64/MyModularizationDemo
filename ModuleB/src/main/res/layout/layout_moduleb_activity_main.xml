@@ -9,7 +9,8 @@
         android:id="@+id/tvModuleBTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ModuleB_Main"
+        android:gravity="center"
+        android:text="我是ModuleB_Main\n 点击跳转到moduleA 的mvvmActivity"
         android:textColor="#ff0000"
         android:textSize="26sp" />
 

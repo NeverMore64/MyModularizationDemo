@@ -5,10 +5,10 @@
     <application
         android:name="com.example.basemodule.BaseApplication"
         android:allowBackup="true"
-        android:supportsRtl="true"
         android:label="我是ModuleA"
-        tools:replace="android:label"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        tools:replace="android:label">
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,6 +20,10 @@
             android:name=".mvp.ui.TestActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvvm.MvvmActivity"
+            android:exported="false" />
+        <activity android:name=".mvvm.openthreadtest.OpenThreadActivity" />
     </application>
 
 </manifest>
