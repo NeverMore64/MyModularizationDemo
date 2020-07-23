@@ -24,6 +24,7 @@
             android:name=".mvvm.MvvmActivity"
             android:exported="false" />
         <activity android:name=".mvvm.openthreadtest.OpenThreadActivity" />
+        <activity android:name=".ThreadCommunicationActivity"/>
     </application>
 
 </manifest>

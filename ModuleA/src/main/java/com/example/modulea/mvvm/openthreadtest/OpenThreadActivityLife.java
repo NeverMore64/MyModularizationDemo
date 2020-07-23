@@ -18,7 +18,7 @@ import com.example.modulea.R;
 
 /**
  * create by zy on 2020/7/15
- * </p>
+ * Android中开启线程的4中方式
  */
 public class OpenThreadActivityLife implements LifecycleObserver {
 
@@ -188,7 +188,7 @@ public class OpenThreadActivityLife implements LifecycleObserver {
         public void run() {
             int length = 1;
             mCount += length;
-            Message message = new Message();
+            Message message = Message.obtain();
             message.what = mCount;
             mHandler.sendMessage(message);
             mHandler.postDelayed(myRunnable, 50);
